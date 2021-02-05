@@ -1,4 +1,3 @@
-springcloud-config: 这里是 pro 环境,当前版本是 =========> 1
 # 服务端口
 server:
   port: 9527
@@ -7,7 +6,7 @@ server:
 eureka:
   instance:
     # 设置 Eureka 注册中心上实例名称
-    instance-id: cloud-gateway9527
+    instance-id: cloud-gateway9527-pro
     # 支持显示服务 ip
     prefer-ip-address: true
   client:
