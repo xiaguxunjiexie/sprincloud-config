@@ -1,55 +1,28 @@
-configs:
-  this is dev , version =========> 1
 # 服务端口
 server:
-  port: 9527
+  port: 3355
+
+springcloud-config-client-version:
+  dev-version-1
+
+spring:
+  application:
+    # 应用名称
+    name: config-client-3355
 
 #################################### Eureka 相关配置 ####################################
 eureka:
   instance:
     # 设置 Eureka 注册中心上实例名称
-    instance-id: cloud-gateway9527-dev
+    instance-id: config-3355
     # 支持显示服务 ip
     prefer-ip-address: true
   client:
     service-url:
       # 是否需要注册到 Eureka
-      register-with-eureka:
+      register-with-eureka: true
       fetch-registry: true
+      # Eureka 集群配置
       defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
 
-spring:
-  application:
-    # 应用名称
-    name: cloud-gateway
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          # 开启从注册中心动态创建路由的功能,利用微服务名进行路由
-          enabled: true
-      routes:
-        # 路由的 ID ,没有固定规则但要求唯一,建议配合服务名
-        - id: payment_routh
-          # lb 是协议,表示启用 Gateway 的负载均衡功能, CLOUD-PAYMENT-SERVICE 是我们在 Eureka 注册中心上的注册名字,
-          uri: lb://CLOUD-PAYMENT-SERVICE
-          predicates:
-            # 断言,路径相匹配的进行路由
-            - Path=/payment/getServerPort/**
 
-        - id: payment_routh2
-          # lb 是协议,表示启用 Gateway 的负载均衡功能, CLOUD-PAYMENT-SERVICE 是我们在 Eureka 注册中心上的注册名字
-          uri: lb://CLOUD-PAYMENT-SERVICE
-          predicates:
-            # 断言,路径相匹配的进行路由
-            - Path=/payment/getMessage/**
-            # 在该时间之后发送的请求才会被匹配
-            - After=2021-02-05T14:51:01.447+08:00[Asia/Shanghai]
-            #并且 Cookie 是 username=xiaomaomao 才能访问
-            #- Cookie=username,xiaomaomao
-            # 请求头中要有X-Request-Id属性并且值为整数的正则表达式
-            #- Header=X-Request-Id, \d+
-            #- Host=**.atguigu.com
-            #- Method=GET
-            #要有参数名称并且是正整数才能路由
-            #- Query=username, \d+
