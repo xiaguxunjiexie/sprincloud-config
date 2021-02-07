@@ -1,5 +1,5 @@
 springcloud-config:
-  这里是 pro 环境,当前版本是 =========> 1
+  this is pro , version =========> 1
 # 服务端口
 server:
   port: 9527

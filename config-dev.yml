@@ -1,5 +1,5 @@
 springcloud-config:
-  这里是 dev 环境,当前版本是 =========> 1
+  this is dev , version =========> 1
 # 服务端口
 server:
   port: 9527
