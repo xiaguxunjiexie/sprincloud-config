@@ -3,7 +3,7 @@ server:
   port: 3355
 
 springcloudConfigClientVersion:
-  dev-version-4
+  dev-version-5
 
 spring:
   application:
