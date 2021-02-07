@@ -1,4 +1,4 @@
-config:
+configs:
   this is test , version =========> 1
 # 服务端口
 server:

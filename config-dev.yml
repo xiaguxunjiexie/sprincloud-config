@@ -1,4 +1,4 @@
-springcloud-config:
+configs:
   this is dev , version =========> 1
 # 服务端口
 server:
