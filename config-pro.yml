@@ -2,7 +2,7 @@
 server:
   port: 3355
 
-springcloud-config-client-version:
+springcloudConfigClientVersion:
   pro-version-1
 
 spring:
